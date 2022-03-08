@@ -14,7 +14,7 @@ function SubCategory() {
     { id: 3, proizvodjac: "Belinka" },
     { id: 4, proizvodjac: "Beohemik" },
     { id: 5, proizvodjac: "Bosch" },
-    { id: 6, proizvodjac: "Chromos Svjetlost" },
+    { id: 6, proizvodjac: "Svjetlost" },
     { id: 7, proizvodjac: "Duga" },
     { id: 8, proizvodjac: "Dugine Boje" },
     { id: 9, proizvodjac: "Dupli Color" },
@@ -209,6 +209,8 @@ function SubCategory() {
             })}
           </div>
         </div>
+
+        <div class="promo-banner"></div>
       </div>
 
       <Footer />

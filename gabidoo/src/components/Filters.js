@@ -1,6 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronUp } from "@fortawesome/free-solid-svg-icons";
 
 function Filters({ filters }) {
   return (
@@ -10,24 +11,50 @@ function Filters({ filters }) {
         <h1 style={{ fontWeight: "700" }}>Boje</h1>
       </div>
       <div className="filters">
-        <div style={{ borderBottom: "1px solid gainsboro" }}>
-          <h3>Filteri</h3>
+        <div className="filters-header">
+          <p>Filteri</p>
+          <p>Resetuj</p>
         </div>
-        <h6>Proizvodjac</h6>
 
-        {filters.map((filter) => {
-          return (
-            <div id={filter.id} className="subcategory-checkbox-container">
-              <input type="checkbox" id={filter.id} name={filter.proizvodjac} />
-              <div className="box">
-                <label htmlFor={filter.proizvodjac}>{filter.proizvodjac}</label>
-              </div>
-            </div>
-          );
-        })}
+        <div className="filter-type-wrapper">
+          <div className="filter-type-header">
+            <h6 className="filter-type" onClick={showFilters}>
+              Proizvodjac
+            </h6>
+
+            <FontAwesomeIcon className="arrow" icon={faChevronUp} />
+          </div>
+          <div className="checkbox-wrapper">
+            {filters.map((filter) => {
+              return (
+                <div id={filter.id} className="subcategory-checkbox-container">
+                  <input
+                    type="checkbox"
+                    id={filter.id}
+                    name={filter.proizvodjac}
+                  />
+                  <div className="box">
+                    <label htmlFor={filter.proizvodjac}>
+                      {filter.proizvodjac}
+                    </label>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
       </div>
     </div>
   );
+
+  function showFilters() {
+    var filtersBox = document.querySelector(".checkbox-wrapper");
+    filtersBox.classList.toggle("checkbox-is-active");
+    var arrow = document.querySelectorAll(".arrow");
+    arrow.forEach((arrow) => {
+      arrow.classList.toggle("arrow-is-active");
+    });
+  }
 }
 
 export default Filters;
